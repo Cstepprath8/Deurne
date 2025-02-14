@@ -1,0 +1,125 @@
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(wallpaper4.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+div {
+  width: 90%; 
+  margin: auto;
+}
+
+p {
+  color: white;
+  background-color: #00355ebe;
+  font-size: 1rem; 
+}
+
+
+.titel {
+  background-color: #00355ebe;
+  color: white;
+  font-size: 3rem; 
+  text-align: center;
+}
+
+.Gegevens, .contact {
+  background-color: #00355ebe;
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  display: inline-block;
+  margin: 0.5rem;
+}
+
+nav {
+  border: 3px solid #dd0069;
+  background-color: #00365e;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verhaal, .f, .d, .r, .j, .n {
+  width: 70%; 
+  font-size: 1.4rem;
+  margin: 1rem auto; 
+}
+
+
+
+.klikhier, .modelautos, .mountainbiken, .bekijkhuisdieren, .huisdieren {
+
+  text-align: left;
+  width: 50%;
+
+}
+
+.verhaalmtb, .verhaalauto {
+  width: 90%;
+  font-size: 1.5rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #00355edb;
+  border-radius: 8px;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.form {
+  background-color: #00355edb;
+  color: white;
+  width: 35%;
+  height: auto;
+}
+
+@media (max-width: 700px) {
+
+  .form {
+    background-color: #00355edb;
+    color: white;
+    width: 95%;
+    height: auto;
+  }
+  
+}
+
+
+@media (min-width: 768px) {
+  .titel {
+    font-size: 4rem; 
+  }
+
+  .verhaal, .f, .d, .r, .j, .n {
+    width: 50%; 
+  }
+}
+
+@media (min-width: 1024px) {
+  .titel {
+    font-size: 5rem; 
+  }
+
+  .verhaalmtb, .verhaalauto {
+    width: 60%; 
+    font-size: 2rem;
+  }
+
+  .klikhier, .modelautos, .mountainbiken, .bekijkhuisdieren, .huisdieren {
+    font-size: 1.5rem;
+  }
+}
