@@ -17,36 +17,37 @@ body {
 }
 
 button {
-padding:5%;
-font-size: 13px;
-border: small;
-background-color: #4073aa;
-color: white;
-cursor: pointer;
-border-radius: 5px;
-width:125px ;
-height:70px ;
-}
-
-button:hover {
-    background-color: #959ea7;
-    transform: scale(1.1); 
-}
-
-
-.Buttonpdf {
-    font-size: 16px;
+    padding:5%;
+    font-size: 13px;
+    border: small;
     background-color: #4073aa;
     color: white;
     cursor: pointer;
-    width:125px ;
-    height:70px ;
+    border-radius: 5px;
+    width:100% ;
+    height:125% ;
+    transition: width 400ms, height 400ms;
+    }
+
+
+.Buttonpdf:hover {
+    background-color: #959ea7;
+    width: 9%;
+    height: 9%;
+}
+
+.Buttonpdf {
+    font-size: 16px;
+    background-color:#4073aa;
+    color: white;
+    cursor: pointer;
+    width:8% ;
+    height:8% ;
     position: absolute;   
     top:10%;
     left: 1%;
+    transition: width 400ms, height 400ms;
 }
-
-
 
 
 ul {
