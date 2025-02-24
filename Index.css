@@ -13,7 +13,7 @@ body {
 
 .container, .Buttonpdf {
  display:flex;
- gap: 10px
+ gap: 50px
 }
 
 button {
@@ -24,15 +24,15 @@ background-color: #4073aa;
 color: white;
 cursor: pointer;
 border-radius: 5px;
-width:100% ;
-height:125% ;
+width:130% ;
+height:140% ;
 transition: width 400ms, height 400ms;
 }
 
 button:hover {
     background-color: #959ea7;
-    width: 107%;
-    height: 132%;
+    width: 135%;
+    height: 145%;
 }
 
 .Buttonpdf:hover {
@@ -114,10 +114,13 @@ ul li a:hover {
         flex-direction: column;
         align-items: center;
         gap: 25px;
+        padding: 1%;
     }
 
     .container a {
         width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     ul {
