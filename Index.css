@@ -9,7 +9,17 @@ body {
     height: 85vh;
     background-image: url("Foto/WebsiteAchtergrond.png");
     background-size: cover;
+    overflow: hidden;
 }
+
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: transparent;
+    color: white;
+    position: absolute;
+    bottom: 0px;
+  }
 
 .container, .Buttonpdf {
  display:flex;
@@ -52,6 +62,29 @@ button:hover {
     top:10%;
     left: 1%;
     transition: width 400ms, height 400ms;
+}
+
+.schuine-balk {
+    position: absolute;
+    top: 0;
+    width: 10%; 
+    height: 100%; 
+  
+}
+
+.links {
+    left: 5%;
+    transform: skewX(-130deg); 
+    transform-origin: bottom left;
+    background-color: rgba(255, 0, 123, 0.7);
+}
+
+.rechts {
+    right: 5%;
+    transform: skewX(130deg);
+    transform-origin: bottom right;
+    background-color: rgba(3, 0, 96, 0.7);
+
 }
 
 
@@ -113,8 +146,9 @@ ul li a:hover {
         width: 100%;  
         flex-direction: column;
         align-items: center;
-        gap: 25px;
+        gap: 30px;
         padding: 1%;
+        margin-top: -200px;
     }
 
     .container a {
