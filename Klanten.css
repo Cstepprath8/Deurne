@@ -59,6 +59,26 @@ button {
     transition: width 400ms, height 400ms;
 }
 
+.Formulier:hover {
+    background-color: #959ea7;
+    width: 9%;
+    height: 9%;
+}
+
+.Formulier {
+    font-size: 16px;
+    background-color:#4073aa;
+    color: white;
+    cursor: pointer;
+    width:8% ;
+    height:8% ;
+    position: absolute;   
+    top:10%;
+    right: 1%;
+    transition: width 400ms, height 400ms;
+}
+
+
 .schuine-balk {
     position: absolute;
     top: 0;
@@ -166,13 +186,32 @@ ul li a:hover {
     }
 
     .Buttonpdf {
-        position: relative;
+        position: absolute;
         width: 50%;
         height: auto;
         text-align: center;
+        margin-top: 10%;
+        left: 25%;
+        
     }
 
     .Buttonpdf button {
+        width: center;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .Formulier {
+        position: absolute;
+        width: 50%;
+        height: auto;
+        text-align: center;
+        margin-top: -1%;
+        left: 25%;
+        
+    }
+
+    .Formulier button {
         width: center;
         height: auto;
         font-size: 14px;

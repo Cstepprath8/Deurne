@@ -64,6 +64,24 @@ button:hover {
     transition: width 400ms, height 400ms;
 }
 
+.Formulier:hover {
+    background-color: #959ea7;
+    width: 9%;
+    height: 9%;
+}
+
+.Formulier {
+    font-size: 16px;
+    background-color:#4073aa;
+    color: white;
+    cursor: pointer;
+    width:8% ;
+    height:8% ;
+    position: absolute;   
+    top:10%;
+    right: 1%;
+    transition: width 400ms, height 400ms;
+}
 
 .schuine-balk {
     position: absolute;
@@ -182,5 +200,56 @@ ul li a:hover {
         width: center;
         height: auto;
         font-size: 14px;
+    }
+
+    .Formulier {
+        position: absolute;
+        width: 50%;
+        height: auto;
+        text-align: center;
+        margin-top: 10%;
+        left: 26%;
+        
+    }
+
+    .Formulier button {
+        width: center;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .schuine-balk {
+        width: 30%; 
+        height: 50px; 
+        top: auto; 
+        bottom: 10px;
+        transform: none; 
+        margin-bottom: 20%;
+    }
+    
+    .links {
+        left: 0;
+        background-color: rgba(255, 0, 123, 0.7);
+        transform: skewX(-130deg); 
+    }
+    
+    .rechts {
+        right:0;
+        background-color: rgba(3, 0, 96, 0.7);
+        transform: skewX(130deg); 
+    }
+    
+    
+    footer {
+        position: relative; 
+        bottom: auto; 
+        padding: 10px; 
+        text-align: center;
+        margin-bottom: 15%;
+    }
+    
+    footer img {
+        max-width: 100%; 
+        height: auto;
     }
 }
