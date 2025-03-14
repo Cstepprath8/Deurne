@@ -9,6 +9,9 @@ $password = 'Wachtwoord'; // je database wachtwoord
 // print_r($_POST);
 // echo '</PRE>';
 
+
+// test
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
 
