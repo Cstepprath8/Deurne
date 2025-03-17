@@ -94,3 +94,58 @@ button:hover {
     appearance: none;
     padding-left: 10px;
 }
+
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-color: #111;
+    }
+
+    /* Maak de brief-container smaller op kleine schermen */
+    .brief-container {
+        width: 90%;  /* De breedte van het formulier is nu 90% van de breedte van de container */
+        max-width: 300px; /* De breedte van het formulier wordt beperkt tot maximaal 600px */
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #ffffff; /* Witte achtergrond voor het formulier */
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], textarea {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    /* Maak de navigatie verticaal en flex-wrap als het scherm kleiner is */
+    ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    ul li a {
+        padding: 12px 10px;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

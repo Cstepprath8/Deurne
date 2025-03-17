@@ -9,9 +9,6 @@ $password = 'Wachtwoord'; // je database wachtwoord
 // print_r($_POST);
 // echo '</PRE>';
 
-
-// test  login
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
 
@@ -55,9 +52,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="nl">
 <head>
     
-    
-
-    <link rel="stylesheet" href="formulier.css">
+          <link rel="stylesheet" href="formulier.css">
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 

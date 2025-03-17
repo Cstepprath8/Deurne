@@ -53,9 +53,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="nl">
 <head>
     
-    
-
-    <link rel="stylesheet" href="Formulier.css">
+          <link rel="stylesheet" href="Formulier.css">
+          
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -98,8 +99,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="form-group">
-                <label for="telefoonnummer">Telefoonnummer:</label>
-                <input type="tel" id="telefoonnummer" name="telefoonnummer" placeholder="Voer telefoonnummer in" required>
+              <label for="telefoonnummer">Telefoonnummer:</label>
+                  <input 
+                    type="tel" 
+                    id="telefoonnummer" 
+                    name="telefoonnummer" 
+                    placeholder="Voer telefoonnummer in" 
+                    required
+                    pattern="^\+?\d{1,4}[\s\-]?\(?\d+\)?[\s\-]?\d+[\s\-]?\d+$"
+                    title="Voer een geldig telefoonnummer in (bijv. +31 6 12345678)" >
             </div>
 
             <div class="form-group">

@@ -5,9 +5,9 @@ $dbname = 'csv_db 5'; // naam van de database
 $username = 'root'; // je database gebruikersnaam
 $password = 'Wachtwoord'; // je database wachtwoord
 
-// echo '<PRE>';
-// print_r($_POST);
-// echo '</PRE>';
+echo '<PRE>';
+print_r($_POST);
+echo '</PRE>';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
@@ -53,9 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="nl">
 <head>
     
-    
-
-    <link rel="stylesheet" href="formulier.css">
+         <link rel="stylesheet" href="formulier.css">
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="form-group">
         <label for="tussenvoegselmedewerker">tussenvoegsel Medewerker:</label>
-        <input type="text" id="tussenvoegselmedewerker" name="tussenvoegselmedewerker" placeholder="Voer tussenvoegsel in" required>
+        <input type="text" id="tussenvoegselmedewerker" name="tussenvoegselmedewerker" placeholder="Voer tussenvoegsel in " >
     </div>
 
     <div class="form-group">
@@ -99,14 +99,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="form-group">
-        <label for="projectnaam">Projectnaam:</label>
-        <input type="text" id="projectnaam" name="projectnaam" placeholder="Voer projectnaam in" required>
+      <label for="projectnaam">Projectnaam:</label>
+      <select id="projectnaam" name="projectnaam" required>
+        <option value="" disabled selected>Kies een projectnaam</option>
+        <option value="US1">US1</option>
+        <option value="US2">US2</option>
+        <option value="US3">US3</option>
+        <option value="US4">US4</option>
+        <option value="US5">US5</option>
+        <option value="US6">US6</option>
+        <option value="US7">US7</option>
+        <option value="US8">US8</option>
+        <option value="US9">US9</option>
+        <option value="US10">US10</option>
+        <option value="Training">Training</option>
+      </select>
     </div>
 
 
     <div class="form-group">
         <label for="aantaluren">Aantal Uren:</label>
-        <textarea id="number" name="aantaluren" placeholder="Voer aantal uren in" required></textarea>
+        <input type="text" id="aantaluren" name="aantaluren" placeholder="00:00" required pattern="^\d{2}:\d{2}$" title="Gebruik het formaat HH:MM">
     </div>
 
     <div class="form-group">
