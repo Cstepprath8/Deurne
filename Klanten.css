@@ -12,6 +12,12 @@ body {
     overflow: hidden;
 }
 
+@media print {
+    .Buttonpdf, .Formulier {
+        display: none !important;
+    }
+}
+
 footer {
     text-align: center;
     padding: 3px;

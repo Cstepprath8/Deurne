@@ -12,6 +12,13 @@ body {
     overflow: hidden;
 }
 
+@media print {
+    .Buttonpdf, .Formulier {
+        display: none !important;
+    }
+}
+
+
 .container, .Buttonpdf {
  display:flex;
  gap: 10px
