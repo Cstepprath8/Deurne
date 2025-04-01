@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 <title> Website Colin </title>
-<link rel="stylesheet" href="Klanten.css" />   
+<link rel="stylesheet" href="Klanten.css" />  
+<link rel="stylesheet" href="Zoekoptie.css" />   
 
 </head>
 
@@ -23,6 +24,13 @@
 
 <div class="Formulier"> 
   <a href="login_klanten.php" target="_self" ><button>Invul Formulier</button></a>
+</div>
+
+<div class="Zoekterm"> 
+<form method="GET" action="Zoekoptie_klanten.php">
+    <input type="text" name="search" placeholder="Voer een Zoekterm in:" required>
+    <button type="submit" class="zoekbutton">Zoek</button>
+</form>
 </div>
 
 

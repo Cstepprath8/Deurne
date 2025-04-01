@@ -5,9 +5,9 @@ $dbname = 'csv_db 5'; // naam van de database
 $username = 'root'; // je database gebruikersnaam
 $password = 'Wachtwoord'; // je database wachtwoord
 
-echo '<PRE>';
-print_r($_POST);
-echo '</PRE>';
+// echo '<PRE>';
+// print_r($_POST);
+// echo '</PRE>';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    

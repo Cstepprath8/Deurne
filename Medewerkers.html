@@ -9,6 +9,7 @@
 <title> Algemeen </title>
 <link rel="stylesheet" href="Medewerkers.css" />   
 <link rel="stylesheet" href="MedewerkersTabel.css">
+<link rel="stylesheet" href="Zoekoptie.css" /> 
 
 </head>
 
@@ -30,6 +31,14 @@
 
 <div class="schuine-balk links"></div>
 <div class="schuine-balk rechts"></div>
+
+
+<div class="Zoekterm"> 
+    <form method="GET" action="Zoekoptie_medewerkers.php">
+        <input type="text" name="search" placeholder="Voer een Zoekterm in:" required>
+        <button type="submit" class="zoekbutton">Zoek</button>
+    </form>
+    </div>
 
 
 <iframe src="Medewerkers_info.php" width="95%" height="350px" style="border: none; margin-top: 15%;"></iframe>

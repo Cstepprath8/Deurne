@@ -5,6 +5,8 @@ $dbname = 'csv_db 5'; // naam van de database
 $username = 'root'; // je database gebruikersnaam
 $password = 'Wachtwoord'; // je database wachtwoord
 
+echo '<link rel="stylesheet" type="text/css" href="medewerkersTabel.css">';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {

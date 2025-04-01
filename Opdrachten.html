@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 <title> Website Colin </title>
-<link rel="stylesheet" href="Klanten.css" />   
+<link rel="stylesheet" href="Klanten.css" /> 
+<link rel="stylesheet" href="Zoekoptie.css" />  
 
 </head>
 
@@ -27,7 +28,15 @@
 
   <div class="schuine-balk links"></div>
   <div class="schuine-balk rechts"></div>
-        
+     
+  <div class="Zoekterm"> 
+    <form method="GET" action="Zoekoptie_Opdrachten.php">
+        <input type="text" name="search" placeholder="Voer een Zoekterm in:" required>
+        <button type="submit" class="zoekbutton">Zoek</button>
+    </form>
+    </div>
+
+
 
   <iframe src="opdrachten_info.php" width="100%" height="300px" style="border: none; margin-top: 5%;"></iframe>
 
