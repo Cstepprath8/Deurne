@@ -128,3 +128,12 @@ input[type="text"] {
 .Zoekbutton:hover {
     background-color: #4073aa;
 }
+
+@media (max-width: 768px) {
+
+    form {
+    text-align: center;
+    margin-top: 20px;
+    margin-top:60%;
+    }
+}
