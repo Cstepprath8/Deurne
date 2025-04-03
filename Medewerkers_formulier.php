@@ -51,15 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <link rel="stylesheet" href="formulier.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        // Functie om de popupmelding te tonen
-        function showPopup() {
-            alert("Wijzigingen zijn opgeslagen!");
-        }
-    </script>
+    <link rel="stylesheet" href="formulier.css">
+    <title>Formulier met Popup</title>
 </head>
 <body>
 
@@ -70,9 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="brief-container">
         <h2>Invulformulier Brief</h2>
 
-        <!-- Toevoegen van onsubmit event om de popup te tonen -->
-        <form action="#" method="post" onsubmit="showPopup();">
-
+        <form action="#" method="post" onsubmit="document.getElementById('popup').showModal(); return false;">
             <div class="form-group">
                 <label for="voornaam">Voornaam:</label>
                 <input type="text" id="voornaam" name="voornaam" placeholder="Voer voornaam in" required>
@@ -113,6 +106,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </form>
     </div>
+
+    <!-- Popup dialoogbox -->
+    <dialog id="popup">
+        <p>Wijzigingen zijn opgeslagen!</p>
+        <button onclick="document.getElementById('popup').close();">Sluiten</button>
+    </dialog>
 
 </body>
 </html>
