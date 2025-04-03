@@ -161,6 +161,7 @@ ul li a:hover {
         align-items: center;
         padding: 10px;
         background-size: cover;
+        height:1000px ;
     }
 
     .container {
