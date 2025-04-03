@@ -51,65 +51,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    
-          <link rel="stylesheet" href="formulier.css">
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formulier.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Functie om de popupmelding te tonen
+        function showPopup() {
+            alert("Wijzigingen zijn opgeslagen!");
+        }
+    </script>
 </head>
 <body>
 
-            <ul>
+    <ul>
         <li><a href="medewerkers.html">Medewerkers</a></li>
-            </ul>
+    </ul>
 
     <div class="brief-container">
         <h2>Invulformulier Brief</h2>
 
-        <form action="#" method="post">
+        <!-- Toevoegen van onsubmit event om de popup te tonen -->
+        <form action="#" method="post" onsubmit="showPopup();">
 
-        <div class="form-group">
-        <label for="voornaam">Voornaam:</label>
-        <input type="text" id="voornaam" name="voornaam" placeholder="Voer voornaam in" required>
-    </div>
+            <div class="form-group">
+                <label for="voornaam">Voornaam:</label>
+                <input type="text" id="voornaam" name="voornaam" placeholder="Voer voornaam in" required>
+            </div>
 
-    <div class="form-group">
-        <label for="tussenvoegsel">Tussenvoegsel:</label>
-        <input type="text" id="tussenvoegsel" name="tussenvoegsels" placeholder="Voer tussenvoegsel in">
-    </div>
+            <div class="form-group">
+                <label for="tussenvoegsel">Tussenvoegsel:</label>
+                <input type="text" id="tussenvoegsel" name="tussenvoegsels" placeholder="Voer tussenvoegsel in">
+            </div>
 
-    <div class="form-group">
-        <label for="achternaam">Achternaam:</label>
-        <input type="text" id="achternaam" name="achternaam" placeholder="Voer achternaam in" required>
-    </div>
+            <div class="form-group">
+                <label for="achternaam">Achternaam:</label>
+                <input type="text" id="achternaam" name="achternaam" placeholder="Voer achternaam in" required>
+            </div>
 
-    <div class="form-group">
-        <label for="geboortedatum">Geboortedatum:</label>
-        <input type="date" id="geboortedatum" name="geboortedatum" placeholder="Voer geboortedatum in" required>
-    </div>
+            <div class="form-group">
+                <label for="geboortedatum">Geboortedatum:</label>
+                <input type="date" id="geboortedatum" name="geboortedatum" placeholder="Voer geboortedatum in" required>
+            </div>
 
-    <div class="form-group">
-        <label for="functie">Functie:</label>
-        <input type="text" id="functie" name="functie" placeholder="Voer functie in" required>
-    </div>
+            <div class="form-group">
+                <label for="functie">Functie:</label>
+                <input type="text" id="functie" name="functie" placeholder="Voer functie in" required>
+            </div>
 
-    <div class="form-group">
-        <label for="werkmail">Werkmail:</label>
-        <input type="email" id="email" name="werkmail" placeholder="Voer werkmail in" required>
-    </div>
+            <div class="form-group">
+                <label for="werkmail">Werkmail:</label>
+                <input type="email" id="email" name="werkmail" placeholder="Voer werkmail in" required>
+            </div>
 
+            <div class="form-group">
+                <label for="kantoorruimte">Kantoorruimte:</label>
+                <textarea id="text" name="kantoorruimte" placeholder="Voer kantoorruimte in" required></textarea>
+            </div>
 
-    <div class="form-group">
-        <label for="kantoorruimte">Kantoorruimte:</label>
-        <textarea id="text" name="kantoorruimte" placeholder="Voer kantoorruimte in" required></textarea>
-    </div>
-
-    <div class="form-group">
-        <button type="submit">Verzend</button>
-    </div>
-</form>
+            <div class="form-group">
+                <button type="submit">Verzend</button>
+            </div>
         </form>
     </div>
-
 
 </body>
 </html>

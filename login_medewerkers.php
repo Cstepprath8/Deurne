@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
    
-    $correct_username = "TilburgUser";
+    $correct_username = "TilburgUser", "Test";
     $correct_password = "TilburgUser"; 
 
 
