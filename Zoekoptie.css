@@ -132,8 +132,10 @@ input[type="text"] {
 @media (max-width: 768px) {
 
     form {
-    text-align: center;
-    margin-top: 20px;
-    margin-top:60%;
+     margin-top:60%;
     }
+
+
+
+
 }
