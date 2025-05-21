@@ -1,16 +1,11 @@
 <?php
 // Verbinding maken met de database
 $host = 'localhost'; // database host
-$dbname = 'csv_db 5'; // naam van de database
+$dbname = 'deurne'; // naam van de database
 $username = 'root'; // je database gebruikersnaam
 $password = 'Wachtwoord'; // je database wachtwoord
 
-// echo '<PRE>';
-// print_r($_POST);
-// echo '</PRE>';
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   
 
     try {
         // Maak een PDO verbinding
@@ -36,19 +31,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Voer de gegevens in de query uit
         $stmt->execute([$bedrijfsnaam, $voornaam, $tussenvoegsel, $achternaam, $functie, $email, $telefoonnummer, $adres]);
- 
-    
-    
-        
-    } catch (PDOException $e) {
 
-    // Foutafhandelingscode
-    echo "Fout bij de databaseverbinding: " . $e->getMessage();
-    $bedrijfsnaam = $array['bedrijfsnaam'] ?? 'Standaardwaarde';
+        // Pak het ID van de zojuist toegevoegde klant
+        $nieuw_klant_id = $pdo->lastInsertId();
+
+        // Redirect naar opdrachtenformulier met klant_id in URL
+        header("Location: opdrachten_formulier.php?klant_id=" . $nieuw_klant_id);
+        exit;
+
+        
+
+    } catch (PDOException $e) {
+        echo "Fout bij de databaseverbinding: " . $e->getMessage();
     }
 }
 ?>
-
+<!-- Rest van je HTML blijft hetzelfde -->
 <!DOCTYPE html>
 <html lang="nl">
 <head>

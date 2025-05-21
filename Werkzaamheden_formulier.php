@@ -1,7 +1,7 @@
 <?php
 // Verbinding maken met de database
 $host = 'localhost'; // database host
-$dbname = 'csv_db 5'; // naam van de database
+$dbname = 'deurne'; // naam van de database
 $username = 'root'; // je database gebruikersnaam
 $password = 'Wachtwoord'; // je database wachtwoord
 

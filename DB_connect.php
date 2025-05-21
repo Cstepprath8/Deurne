@@ -4,7 +4,7 @@
 $servername = "localhost";  // Je servernaam (meestal localhost)
 $username = "root";         // Je MySQL gebruikersnaam
 $password = "Wachtwoord";   // Je MySQL wachtwoord
-$dbname = "csv_db 5";       // Je database naam
+$dbname = "deurne";       // Je database naam
 
 // Maak verbinding met de database
 $conn = new mysqli($servername, $username, $password, $dbname);

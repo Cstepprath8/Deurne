@@ -1,46 +1,47 @@
 <?php
 // Verbinding maken met de database
-$host = 'localhost'; // database host
-$dbname = 'csv_db 5'; // naam van de database
-$username = 'root'; // je database gebruikersnaam
-$password = 'Wachtwoord'; // je database wachtwoord
+$host = 'localhost';
+$dbname = 'deurne';
+$username = 'root';
+$password = 'Wachtwoord';
 
-echo '<link rel="stylesheet" type="text/css" href="medewerkersTabel.css">';
-
+// Verbinding maken met de database en formulier verwerken
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     try {
-        // Maak een PDO verbinding
         $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Haal de formuliergegevens op
+        // Haal formuliergegevens op
         $titel = $_POST['titel'];
         $omschrijving = $_POST['omschrijving'];
-        $aanvraagdatum = $_POST['aanvraagdatum'];// Dit is al in jjjj-mm-dd formaat
+        $aanvraagdatum = $_POST['aanvraagdatum'];
         $benodigdekennis = $_POST['benodigdekennis'];
 
-        // Optioneel: als je de datum wilt omzetten naar een ander formaat
-        // Zet de datum om naar een ander formaat (bijv. dd-mm-jjjj)
-        $date = DateTime::createFromFormat('Y-m-d', $aanvraagdatum);
-        $formatted_date = $date->format('d-m-Y');  // Converteer naar dd-mm-jjjj
+        // Haal hoogste klant_id uit de DB
+        $stmt = $pdo->query("SELECT MAX(klant_id) AS max_klant_id FROM Opdrachten");
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $max_klant_id = $result['max_klant_id'] ?? 0;
 
-        // SQL-query om de gegevens in de database in te voegen
-        $sql = "INSERT INTO Opdrachten (titel, omschrijving, aanvraagdatum, benodigdekennis) 
-                VALUES (?, ?, ?, ?)";
+        // Bepaal nieuwe klant_id automatisch
+        $klant_id = $max_klant_id + 1;
 
-        // Bereid de statement voor
+        // Voer insert uit met de nieuwe klant_id
+        $sql = "INSERT INTO Opdrachten (titel, omschrijving, aanvraagdatum, benodigdekennis, klant_id)
+                VALUES (?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
+        $stmt->execute([$titel, $omschrijving, $aanvraagdatum, $benodigdekennis, $klant_id]);
 
-        // Voer de gegevens in de query uit
-        $stmt->execute([$titel, $omschrijving, $aanvraagdatum, $benodigdekennis]);
+        echo "Opdracht succesvol toegevoegd met klant_id $klant_id.";
 
     } catch (PDOException $e) {
-        // Foutafhandelingscode
-        echo "Fout bij de databaseverbinding: " . $e->getMessage();
+        echo "Database fout: " . $e->getMessage();
     }
 }
+
+
+
 ?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -58,32 +59,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="brief-container">
         <h2>Opdrachtformulier</h2>
-        <form action="#" method="post">
+       <form action="#" method="post">
 
-            <div class="form-group">
-                <label for="titel">Titel:</label>
-                <input type="text" id="titel" name="titel" placeholder="Voer titel in" required>
-            </div>
+    <div class="form-group">
+        <label for="titel">Titel:</label>
+        <input type="text" id="titel" name="titel" placeholder="Voer titel in" required>
+    </div>
 
-            <div class="form-group">
-                <label for="omschrijving">Omschrijving:</label>
-                <textarea id="omschrijving" name="omschrijving" placeholder="Voer omschrijving in" required></textarea>
-            </div>
+    <div class="form-group">
+        <label for="omschrijving">Omschrijving:</label>
+        <textarea id="omschrijving" name="omschrijving" placeholder="Voer omschrijving in" required></textarea>
+    </div>
 
-            <div class="form-group">
-                <label for="aanvraagdatum">Aanvraagdatum:</label>
-                <input type="date" id="aanvraagdatum" name="aanvraagdatum" required>
-            </div>
+    <div class="form-group">
+        <label for="aanvraagdatum">Aanvraagdatum:</label>
+        <input type="date" id="aanvraagdatum" name="aanvraagdatum" required>
+    </div>
 
-            <div class="form-group">
-                <label for="benodigdekennis">Benodigde kennis:</label>
-                <input type="text" id="benodigdekennis" name="benodigdekennis" placeholder="Voer benodigde kennis in" required>
-            </div>
+    <div class="form-group">
+        <label for="benodigdekennis">Benodigde kennis:</label>
+        <input type="text" id="benodigdekennis" name="benodigdekennis" placeholder="Voer benodigde kennis in" required>
+    </div>
 
-            <div class="form-group">
-                <button type="submit">Verzend</button>
-            </div>
-        </form>
+    <div class="form-group">
+        <button type="submit">Verzend</button>
+    </div>
+</form>
+
     </div>
 
 </body>

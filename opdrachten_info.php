@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";  
-$username = "root";         
-$password = "Wachtwoord";             
-$dbname = "csv_db 5";  
+include('db_connect.php'); 
 
 echo '<link rel="stylesheet" type="text/css" href="medewerkersTabel.css">';
 
@@ -25,17 +22,20 @@ echo "<tr>";
 
 if ($result->num_rows > 0) {
     $columns = $result->fetch_fields();
-    foreach ($columns as $column) {
-        echo "<th>" . $column->name . "</th>";
-    }
+   foreach ($columns as $column) {
+    if ($column->name === 'klant_id') continue;
+    echo "<th>" . $column->name . "</th>";
+}
+
     echo "</tr>";
 
    
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
-        foreach ($row as $value) {
-            echo "<td>" . htmlspecialchars($value) . "</td>";
-        }
+       foreach ($row as $kolom => $value) {
+    if ($kolom === 'klant_id') continue; // sla klant_id over
+    echo "<td>" . htmlspecialchars($value ?? '') . "</td>";
+}
         echo "</tr>";
     }
 } else {

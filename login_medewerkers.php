@@ -7,8 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
    
-    $correct_username = "TilburgUser", "Test";
-    $correct_password = "TilburgUser"; 
+    $correct_username = "DeurneUser";
+    $correct_password = "DeurneUser"; 
 
 
     if ($username === $correct_username && $password === $correct_password) {

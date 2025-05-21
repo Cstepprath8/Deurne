@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";  
-$username = "root";         
-$password = "Wachtwoord";             
-$dbname = "csv_db 5";  
+include('db_connect.php'); 
 
 echo '<link rel="stylesheet" type="text/css" href="medewerkersTabel.css">';
 
