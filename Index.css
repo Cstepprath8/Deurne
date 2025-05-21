@@ -23,7 +23,7 @@ footer {
 
 .container, .Buttonpdf {
  display:flex;
- gap: 50px
+ gap: 75px
 }
 
 button {
