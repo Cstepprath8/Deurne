@@ -1,0 +1,107 @@
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9f9f9;
+            color: #333;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            background-image: url("Foto/WebsiteAchtergrond.png");
+        }
+
+        ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+ul li {
+    margin: 0;
+}
+
+ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    background-color: #111;
+}
+
+        /* Container voor het formulier */
+        form {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+            margin-top: 10%;
+            left: 34.5%;
+            position: absolute;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: #222;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        select:focus {
+            border-color: #4073aa;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 64, 133, 0.5);
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px 0;
+            font-size: 1.1rem;
+            background-color: #004085;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #003060;
+        }
+
+  @media (max-width: 768px) {
+    form {
+        padding: 25px 30px;
+        max-width: 90%;      /* Formulier vult bijna hele scherm */
+        margin-top: 40px;    /* Kleinere top marge */
+    }
+}

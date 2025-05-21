@@ -21,12 +21,17 @@ try {
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="factuur_Selectie.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Factuur Selectie</title>
 </head>
 <body>
 
-<h2>Kies een klant voor factuur</h2>
+            <ul>
+        <li><a href="Index.html">Terug</a></li>
+            </ul>
+
+<h2>Kies een klant voor een factuur te genereren</h2>
 
 <form action="factuur.php" method="GET">
     <label for="id">Selecteer klant:</label>

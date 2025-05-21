@@ -36,8 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nieuw_klant_id = $pdo->lastInsertId();
 
         // Redirect naar opdrachtenformulier met klant_id in URL
-        header("Location: opdrachten_formulier.php?klant_id=" . $nieuw_klant_id);
-        exit;
 
         
 

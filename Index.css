@@ -45,13 +45,13 @@ button:hover {
     height: 145%;
 }
 
-.Buttonpdf:hover {
+.Formulier:hover {
     background-color: #959ea7;
     width: 9%;
     height: 9%;
 }
 
-.Buttonpdf {
+.Formulier {
     font-size: 16px;
     background-color: #4073aa;
     color: white;
@@ -60,6 +60,45 @@ button:hover {
     height:8% ;
     position: absolute;   
     top:10%;
+    left: 1%;
+    transition: width 400ms, height 400ms;
+}
+
+
+.Grafiek:hover {
+    background-color: #959ea7;
+    width: 9%;
+    height: 9%;
+}
+
+.Grafiek {
+    font-size: 16px;
+    background-color: #4073aa;
+    color: white;
+    cursor: pointer;
+    width:8% ;
+    height:8% ;
+    position: absolute;   
+    top:10%;
+    right: 3%;
+    transition: width 400ms, height 400ms;
+}
+
+.Factuur:hover {
+    background-color: #959ea7;
+    width: 9%;
+    height: 9%;
+}
+
+.Factuur {
+    font-size: 16px;
+    background-color: #4073aa;
+    color: white;
+    cursor: pointer;
+    width:8% ;
+    height:8% ;
+    position: absolute;   
+    top:25%;
     left: 1%;
     transition: width 400ms, height 400ms;
 }

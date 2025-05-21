@@ -21,13 +21,13 @@ $tarief_per_uur = 75.00;
 
 $sqlFactuur = "
     SELECT 
-        w.Projectnaam AS omschrijving,
-        SUM(w.Aantaluren) AS totaal_uren,
-        SUM(w.Aantaluren) * ? AS subtotaal
+        o.titel AS omschrijving,
+        SUM(w.aantaluren) AS totaal_uren,
+        SUM(w.aantaluren) * ? AS subtotaal
     FROM werkzaamheden w
-    JOIN opdrachten o ON w.Projectnaam = o.titel
+    JOIN opdrachten o ON w.opdracht_id = o.id
     WHERE o.klant_id = ?
-    GROUP BY w.Projectnaam
+    GROUP BY o.titel
 ";
 $stmt = $conn->prepare($sqlFactuur);
 $stmt->bind_param("di", $tarief_per_uur, $klant_id);
