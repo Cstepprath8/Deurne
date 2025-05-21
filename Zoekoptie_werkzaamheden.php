@@ -54,7 +54,11 @@ $conn->close(); // Close the database connection
 <body>
         
 <ul>
-        <li><a href="Werkzaamheden.html">Terug</a></li>
+<<<<<<< HEAD
+        <li><a href="klanten.html">Terug</a></li>
+=======
+        <li><a href="klanten.html">Terug</a></li>
+>>>>>>> 2bdd4e19333fe3cdf6f5d5e16992e6a90399a9bd
       </ul>
 </body> 
 
