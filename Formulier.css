@@ -1,0 +1,151 @@
+body{
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    background-image: url("Foto/WebsiteAchtergrond.png");
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+ul li {
+    margin: 0;
+}
+
+ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    background-color: #111;
+}
+
+.brief-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff; /* White background for the form */
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    text-align: center;
+    color: #333;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="text"], input[type="email"], input[type="tel"], textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+button {
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+button:hover {
+    background-color: #111;
+}
+.form-group input[type="tel"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-left: 10px;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-color: #111;
+    }
+
+    /* Maak de brief-container smaller op kleine schermen */
+    .brief-container {
+        width: 90%;  /* De breedte van het formulier is nu 90% van de breedte van de container */
+        max-width: 300px; /* De breedte van het formulier wordt beperkt tot maximaal 600px */
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #ffffff; /* Witte achtergrond voor het formulier */
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], textarea {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    /* Maak de navigatie verticaal en flex-wrap als het scherm kleiner is */
+    ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    ul li a {
+        padding: 12px 10px;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"], textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

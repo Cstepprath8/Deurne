@@ -12,6 +12,12 @@ body {
     overflow: hidden;
 }
 
+@media print {
+    .Buttonpdf, .Formulier {
+        display: none !important;
+    }
+}
+
 footer {
     text-align: center;
     padding: 3px;
@@ -58,6 +64,26 @@ button {
     left: 1%;
     transition: width 400ms, height 400ms;
 }
+
+.Formulier:hover {
+    background-color: #959ea7;
+    width: 9%;
+    height: 9%;
+}
+
+.Formulier {
+    font-size: 16px;
+    background-color:#4073aa;
+    color: white;
+    cursor: pointer;
+    width:8% ;
+    height:8% ;
+    position: absolute;   
+    top:10%;
+    right: 1%;
+    transition: width 400ms, height 400ms;
+}
+
 
 .schuine-balk {
     position: absolute;
@@ -129,12 +155,19 @@ ul li a:hover {
     background-color: #111;
 }
 
+
+
+
+
+
+
 @media (max-width: 768px) {
     body {
         flex-direction: column;
         align-items: center;
         padding: 10px;
         background-size: cover;
+        height:1000px ;
     }
 
     .container {
@@ -166,13 +199,32 @@ ul li a:hover {
     }
 
     .Buttonpdf {
-        position: relative;
+        position: absolute;
         width: 50%;
         height: auto;
         text-align: center;
+        margin-top: 10%;
+        left: 25%;
+        
     }
 
     .Buttonpdf button {
+        width: center;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .Formulier {
+        position: absolute;
+        width: 50%;
+        height: auto;
+        text-align: center;
+        margin-top: -1%;
+        left: 25%;
+        
+    }
+
+    .Formulier button {
         width: center;
         height: auto;
         font-size: 14px;

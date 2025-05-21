@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<title> Website Colin </title>
+<link rel="stylesheet" href="Klanten.css" />   
+<link rel="stylesheet" href="Zoekoptie.css" /> 
+
+</head>
+
+<body>
+       
+      <ul>
+        <li><a href="Index.html">Index</a></li>
+      </ul>
+
+       <div class="Buttonpdf">
+    <button onclick="window.print()">Download sectie als PDF</button>
+       </div>
+
+       <div class="Formulier"> 
+        <a href="login_werkzaamheden.php" target="_self" ><button>Invul Formulier</button></a>
+      </div>
+
+  <div class="schuine-balk links"></div>
+  <div class="schuine-balk rechts"></div>
+    
+  <div class="Zoekterm"> 
+    <form method="GET" action="Zoekoptie_werkzaamheden.php">
+        <input type="text" name="search" placeholder="Voer een Zoekterm in:" required>
+        <button type="submit" class="zoekbutton">Zoek</button>
+    </form>
+    </div>
+
+
+ 
+  <iframe src="Werkzaamheden_info.php" width="95%" height="350px" style="border: none; margin-top: 5%;"></iframe>
+
+    <footer>
+        <img src="Foto/GildeDevOps.png" alt="DevOps foto">
+    </footer>
+      
+</body>
+
+</html>

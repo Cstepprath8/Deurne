@@ -186,4 +186,28 @@ ul li a:hover {
         height: auto;
         font-size: 14px;
     }
+
+    .schuine-balk {
+        width: 30%; 
+        height: 50px; 
+        top: auto; 
+        bottom: 10px;
+        transform: none; 
+        margin-bottom: 20%;
+    }
+    
+    .links {
+        left: 0;
+        background-color: rgba(255, 0, 123, 0.7);
+        transform: skewX(-130deg); 
+    }
+    
+    .rechts {
+        right:0;
+        background-color: rgba(3, 0, 96, 0.7);
+        transform: skewX(130deg); 
+    }
+    
+    
+ 
 }

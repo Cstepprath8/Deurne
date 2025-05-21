@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    background-image: url("Foto/WebsiteAchtergrond.png");
+    background-size: cover;
+}
+h2, h3 , p {
+ color:white ;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+ul li {
+    margin: 0;
+}
+
+ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    background-color: #111;
+}
+
+
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+/* Zoekresultaten stijlen */
+.search-results {
+    width: 80%; /* Stel de breedte van de zoekresultaten in */
+    max-width: 800px; /* Maximaal 800px breed voor grotere schermen */
+    margin: 0 auto; /* Automatische marges om het horizontaal te centreren */
+    padding: 20px;
+    background-color: #fff; /* Witte achtergrond voor de resultaten */
+    border-radius: 10px; /* Ronde hoeken voor een nette uitstraling */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Schaduw voor een mooi effect */
+    
+}
+
+.search-result {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.search-result h3 {
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.search-result p {
+    color: #ffffff;
+    margin: 5px 0;
+}
+
+.search-result:last-child {
+    border-bottom: none;
+}
+
+/* Zorg ervoor dat de .Zoekterm-container bovenaan en gecentreerd is */
+.Zoekterm {
+    display: flex; /* Zet de container om in een flex-container */ 
+    justify-content: center; /* Horizontaal centreren */
+    align-items: flex-start; /* Verticaal uitlijnen naar boven */
+    position: absolute; /* Maak het formulier absoluut gepositioneerd */
+    top: 20px; /* Zet de zoekterm-container 20px van de bovenkant van de pagina */
+    left: 50%; /* Zet het formulier horizontaal in het midden */
+    transform: translateX(-50%); /* Correcte uitlijning door het formulier naar links te verschuiven */
+    width: 50%; /* Zorg ervoor dat het formulier de breedte van de pagina inneemt */
+    height: 10%;
+    z-index: 10; /* Zorg ervoor dat de zoekterm boven andere elementen blijft staan */
+}
+
+form {
+    text-align: center; /* Zet de tekst in het formulier gecentreerd */
+    display: flex; /* Flexbox voor het formulier */
+    flex-direction: column; /* Zorg dat de elementen onder elkaar staan */
+    align-items: center; /* Horizontaal centreren van de input en de button */
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+ 
+    margin-top: 15%; /* Ruimte boven de knop */
+}
+
+.zoekbutton {
+    padding: 10px 15px;
+    background-color: #4073aa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5%; /* Ruimte boven de knop */
+}
+
+.Zoekbutton:hover {
+    background-color: #4073aa;
+}
+
+@media (max-width: 768px) {
+
+    form {
+    text-align: center;
+    margin-top: 20px;
+    margin-top:60%;
+    }
+}
