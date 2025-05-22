@@ -11,6 +11,27 @@ body {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+
+.ButtonTerug {
+    display: flex;
+    justify-content: flex-end; 
+    left: 90%;
+    
+}
+
+
+.imagegilde {
+    position: absolute;
+    top: 0;
+    right: 35%;
+    transform: translateY(50%);
+    max-width: 150px; /* pas aan naar wens */
+    height: auto;
+
+
+
+}
+
 h1 {
     color: #333;
     font-size: 28px;

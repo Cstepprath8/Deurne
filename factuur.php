@@ -44,6 +44,7 @@ while ($row = $factuurResult->fetch_assoc()) {
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+    <link rel="stylesheet" href="factuur.css">
     <meta charset="UTF-8">
     <title>Factuur - <?= htmlspecialchars($klant['Bedrijfsnaam']) ?></title>
     <style>
@@ -61,21 +62,29 @@ while ($row = $factuurResult->fetch_assoc()) {
     </style>
 </head>
 <body>
+    
+       <div class="geen-print">
+            <button onclick="window.print()">Download / Print Factuur</button>
+       </div>
 
-<div class="geen-print">
-    <button onclick="window.print()">Download / Print Factuur</button>
-</div>
+       <div class="ButtonTerug geen-print">
+            <a href="index.html" target="_self" ><button><strong>Terug</strong></button></a>
+       </div>
+
+        <div class="imagegilde">
+            <img src="Foto/GildeDevOps.png" alt="DevOps foto">
+       </div>
 
 <h1>Factuur</h1>
-<div class="gegevens">
-    <p><strong>Bedrijfsnaam:</strong> <?= htmlspecialchars($klant['Bedrijfsnaam']) ?></p>
-    <p><strong>Contactpersoon:</strong> <?= htmlspecialchars(trim($klant['Voornaam'] . ' ' . $klant['Tussenvoegsel'] . ' ' . $klant['Achternaam'])) ?></p>
-    <p><strong>Functie:</strong> <?= htmlspecialchars($klant['Functie']) ?></p>
-    <p><strong>Email:</strong> <?= htmlspecialchars($klant['Email']) ?></p>
-    <p><strong>Telefoon:</strong> <?= htmlspecialchars($klant['Telefoonnummer']) ?></p>
-    <p><strong>Adres:</strong> <?= htmlspecialchars($klant['Adres']) ?></p>
-    <p><strong>Datum:</strong> <?= date("d-m-Y") ?></p>
-</div>
+       <div class="gegevens">
+            <p><strong>Bedrijfsnaam:</strong> <?= htmlspecialchars($klant['Bedrijfsnaam']) ?></p>
+            <p><strong>Contactpersoon:</strong> <?= htmlspecialchars(trim($klant['Voornaam'] . ' ' . $klant['Tussenvoegsel'] . ' ' . $klant['Achternaam'])) ?></p>
+            <p><strong>Functie:</strong> <?= htmlspecialchars($klant['Functie']) ?></p>
+            <p><strong>Email:</strong> <?= htmlspecialchars($klant['Email']) ?></p>
+            <p><strong>Telefoon:</strong> <?= htmlspecialchars($klant['Telefoonnummer']) ?></p>
+            <p><strong>Adres:</strong> <?= htmlspecialchars($klant['Adres']) ?></p>
+            <p><strong>Datum:</strong> <?= date("d-m-Y") ?></p>
+       </div>
 
 <table>
     <tr>
@@ -84,6 +93,7 @@ while ($row = $factuurResult->fetch_assoc()) {
         <th>Tarief (€)</th>
         <th>Subtotaal (€)</th>
     </tr>
+
     <?php foreach ($regels as $regel): ?>
         <tr>
             <td><?= htmlspecialchars($regel['omschrijving']) ?></td>
@@ -92,11 +102,23 @@ while ($row = $factuurResult->fetch_assoc()) {
             <td><?= number_format($regel['subtotaal'], 2, ',', '.') ?></td>
         </tr>
     <?php endforeach; ?>
+
+    <?php
+        
+        $btw = $totaal * 0.21;
+        $totaal_incl_btw = $totaal + $btw;
+    ?>
+
     <tr>
-        <td colspan="3" class="totaal">Totaal</td>
-        <td class="totaal"><?= number_format($totaal, 2, ',', '.') ?></td>
+        <td colspan="3" class="totaal">21% BTW</td>
+        <td class="totaal"><?= number_format($btw, 2, ',', '.') ?></td>
+    </tr>
+    <tr>
+        <td colspan="3" class="totaal">Totaal incl. BTW</td>
+        <td class="totaal"><?= number_format($totaal_incl_btw, 2, ',', '.') ?></td>
     </tr>
 </table>
+
 
 </body>
 </html>

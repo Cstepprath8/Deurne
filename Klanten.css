@@ -108,6 +108,11 @@ button {
 
 }
 
+.hidden-column {
+    display: none;
+}
+
+
 
 ul {
     list-style-type: none;

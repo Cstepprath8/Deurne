@@ -4,6 +4,10 @@ iframe {
     border: none;
 }
 
+.hidden-column {
+    display: none;
+}
+
 
 table {
     width: 80%;

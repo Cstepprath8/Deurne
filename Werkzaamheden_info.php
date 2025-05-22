@@ -23,7 +23,7 @@ echo "<tr>";
 if ($result->num_rows > 0) {
     $columns = $result->fetch_fields();
    foreach ($columns as $column) {
-    if (in_array($column->name, ['opdracht_id', 'medewerker_id'])) continue;
+    if (in_array($column->name, ['opdracht_id', 'medewerker_id' , 'ID'])) continue;
     echo "<th>" . htmlspecialchars($column->name) . "</th>";
 }
     echo "</tr>";
@@ -32,7 +32,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
              foreach ($row as $kolom => $value) {
-    if (in_array($kolom, ['opdracht_id', 'medewerker_id'])) continue;
+    if (in_array($kolom, ['opdracht_id', 'medewerker_id' , 'ID'])) continue;
 
     echo "<td>" . htmlspecialchars($value ?? '') . "</td>";
 }

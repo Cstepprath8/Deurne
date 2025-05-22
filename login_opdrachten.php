@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<h1>Welkom bij het login scherm van Tilburg10!</h1>
+<h1>Welkom bij het login scherm van Deurne!</h1>
 <h2>Login om door te gaan naar het formulier</h2>
     <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
     <form method="post">
