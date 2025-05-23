@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Redirect naar opdrachtenformulier met klant_id in URL
 
-        
+
 
     } catch (PDOException $e) {
         echo "Fout bij de databaseverbinding: " . $e->getMessage();
@@ -47,18 +47,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!-- Rest van je HTML blijft hetzelfde -->
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
-    
-          <link rel="stylesheet" href="Formulier.css">
-          
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="Formulier.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
 
-            <ul>
+    <ul>
         <li><a href="klanten.html">Klanten</a></li>
-            </ul>
+    </ul>
 
 
     <div class="brief-container">
@@ -95,15 +97,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="form-group">
-              <label for="telefoonnummer">Telefoonnummer:</label>
-                  <input 
-                    type="tel" 
-                    id="telefoonnummer" 
-                    name="telefoonnummer" 
-                    placeholder="Voer telefoonnummer in" 
-                    required
-                    pattern="^\+?\d{1,4}[\s\-]?\(?\d+\)?[\s\-]?\d+[\s\-]?\d+$"
-                    title="Voer een geldig telefoonnummer in (bijv. +31 6 12345678)" >
+                <label for="telefoonnummer">Telefoonnummer:</label>
+                <input type="tel" id="telefoonnummer" name="telefoonnummer" placeholder="Voer telefoonnummer in"
+                    required pattern="^\+?\d{1,4}[\s\-]?\(?\d+\)?[\s\-]?\d+[\s\-]?\d+$"
+                    title="Voer een geldig telefoonnummer in (bijv. +31 6 12345678)">
             </div>
 
             <div class="form-group">
@@ -119,4 +116,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 </body>
+
 </html>

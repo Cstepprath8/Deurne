@@ -6,6 +6,7 @@ body {
             display: flex;
             justify-content: center;
             background-image: url("Foto/WebsiteAchtergrond.png");
+            background-size: cover;
         }
 
         ul {

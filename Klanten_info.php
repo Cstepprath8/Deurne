@@ -1,5 +1,5 @@
 <?php
-include('db_connect.php'); 
+include('db_connect.php');
 
 echo '<link rel="stylesheet" type="text/css" href="medewerkersTabel.css">';
 
@@ -9,7 +9,7 @@ if ($conn->connect_error) {
     die("Verbinding mislukt: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM Klanten_DB"; 
+$sql = "SELECT * FROM Klanten_DB";
 $result = $conn->query($sql);
 
 echo "<table border='1'>";

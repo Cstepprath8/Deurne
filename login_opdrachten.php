@@ -6,14 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-   
+
     $correct_username = "DeurneUser";
-    $correct_password = "DeurneUser"; 
+    $correct_password = "DeurneUser";
 
 
     if ($username === $correct_username && $password === $correct_password) {
         $_SESSION['loggedin'] = true;
-        header("Location: Opdrachten_formulier.php"); 
+        header("Location: Opdrachten_formulier.php");
         exit();
     } else {
         $error = "Onjuiste gebruikersnaam of wachtwoord!";
@@ -23,15 +23,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
-          <link rel="stylesheet" href="login.css">
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
-<h1>Welkom bij het login scherm van Deurne!</h1>
-<h2>Login om door te gaan naar het formulier</h2>
-    <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
+    <h1>Welkom bij het login scherm van Deurne!</h1>
+    <h2>Login om door te gaan naar het formulier</h2>
+    <?php if (isset($error))
+        echo "<p style='color:red;'>$error</p>"; ?>
     <form method="post">
         <label>Gebruikersnaam:</label>
         <input type="text" name="username" required>
@@ -42,9 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit">Inloggen</button>
     </form>
 
-    <div class="ButtonBack"> 
-  <a href="opdrachten.html" target="_self" ><button>Terug</button></a>
+    <div class="ButtonBack">
+        <a href="opdrachten.html" target="_self"><button>Terug</button></a>
     </div>
 
 </body>
+
 </html>
