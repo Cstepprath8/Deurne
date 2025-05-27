@@ -91,12 +91,12 @@ while ($row = $result->fetch_assoc()) {
             padding: 20px;
             color: #fff;
             text-align: center;
-            background-image: url("Foto/WebsiteAchtergrond.png");
+            background-image: url("Foto/WebsiteAchtergrond 3.png");
             background-size: cover;
 
         }
 
-        h1 {
+        h1, h2 {
             color: #1f2e46;
         }
 
@@ -184,7 +184,7 @@ while ($row = $result->fetch_assoc()) {
         <a href="index.html" target="_self"><button><strong>Terug</strong></button></a>
     </div>
 
-    <h1>Medewerker Uren Overzicht</h1>
+    <h1>Medewerker Uren per jaar Overzicht</h1>
 
     <ul id="medewerker-lijst">
         <?php foreach ($data as $naam => $gegevens): ?>

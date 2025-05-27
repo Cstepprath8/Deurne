@@ -26,16 +26,19 @@ try {
         $omschrijvingwerkzaamheden = $_POST['omschrijvingwerkzaamheden'];
         $projectnaam = $_POST['projectnaam'];
         $aantaluren = $_POST['aantaluren'];
+        $jaar = date("Y");
 
         // Voeg toe aan database
+     $jaar = date("Y");
+
         $sql = "INSERT INTO werkzaamheden 
-                (opdracht_id, week, voornaammedewerker, tussenvoegselmedewerker, achternaammedewerker, omschrijvingwerkzaamheden, projectnaam, aantaluren)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        (opdracht_id, week, voornaammedewerker, tussenvoegselmedewerker, achternaammedewerker, omschrijvingwerkzaamheden, projectnaam, aantaluren, jaar)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
-            $opdracht_id, $week, $voornaammedewerker, $tussenvoegselmedewerker,
-            $achternaammedewerker, $omschrijvingwerkzaamheden, $projectnaam, $aantaluren
-        ]);
+    $opdracht_id, $week, $voornaammedewerker, $tussenvoegselmedewerker,
+    $achternaammedewerker, $omschrijvingwerkzaamheden, $projectnaam, $aantaluren, $jaar
+]);
 
         echo "<p style='color:green;'>✅ Werkzaamheid toegevoegd!</p>";
     }
