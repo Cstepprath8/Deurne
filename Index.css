@@ -45,6 +45,7 @@ button:hover {
     height: 145%;
 }
 
+
 .Formulier:hover {
     background-color: #959ea7;
     width: 9%;
@@ -100,6 +101,25 @@ button:hover {
     position: absolute;   
     top:25%;
     left: 1%;
+    transition: width 400ms, height 400ms;
+}
+
+.Logout:hover {
+    background-color: #959ea7;
+    width: 9%;
+    height: 9%;
+}
+
+.Logout {
+    font-size: 16px;
+    background-color: #4073aa;
+    color: white;
+    cursor: pointer;
+    width:8% ;
+    height:8% ;
+    position: absolute;   
+    top:25%;
+    right: 3%;
     transition: width 400ms, height 400ms;
 }
 
@@ -248,6 +268,16 @@ ul li a:hover {
         transform: skewX(130deg); 
     }
     
+      .Formulier,
+  .Grafiek,
+  .Factuur, .Logout {
+    position: static;
+    width: 70%;
+    height: auto;
+    margin-top: 26px;
+    margin-right: 78px;
+
+  }
     
  
 }

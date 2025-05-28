@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Redirect naar opdrachtenformulier met klant_id in URL
 
-
+        echo "<script>alert('✅ Klant succesvol toegevoegd!');</script>";
 
     } catch (PDOException $e) {
         echo "Fout bij de databaseverbinding: " . $e->getMessage();

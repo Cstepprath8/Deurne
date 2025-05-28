@@ -1,3 +1,14 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['loggedin'])) {
+    header("Location: login2.php");
+    exit();
+}
+?> 
+
+
+
 <!DOCTYPE html>
 
 <html>
@@ -13,7 +24,7 @@
 
 <body>
     <ul>
-        <li><a href="Index.html">Index</a></li>
+        <li><a href="Index.php">Index</a></li>
     </ul>
 
     <div class="container">
@@ -38,6 +49,10 @@
 
     <div class="Factuur">
         <a href="Factuur_Selectie.php" target="_self"><button><strong>Factuur Genereren</strong></button></a>
+    </div>
+
+     <div class="Logout">
+        <a href="logout.php" target="_self"><button><strong>Uitloggen</strong></button></a>
     </div>
 
     <footer>

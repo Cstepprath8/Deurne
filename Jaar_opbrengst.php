@@ -84,6 +84,8 @@ while ($row = $result->fetch_assoc()) {
     <meta charset="UTF-8">
     <title>Overzicht Medewerkers & Opdrachten</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -175,14 +177,109 @@ while ($row = $result->fetch_assoc()) {
         .geen-print button:hover {
             background-color: #45a049;
         }
+
+        @media (max-width: 768px) {
+    body {
+        padding: 10px;
+        text-align: left;
+        background-position: center;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    ul#medewerker-lijst {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+   ul#medewerker-lijst li button {
+    background-color: #1f2e46;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+   
+    width: 150px;         
+    text-align: center;
+    white-space: nowrap;  
+    overflow: hidden;     
+    text-overflow: ellipsis; 
+}
+
+    .layout {
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    #grafiek,
+    #omschrijvingGrafiek {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    #medewerker-info {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .geen-print {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .geen-print button {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .ButtonTerug {
+        justify-content: center;
+    }
+}
+
+@media print {
+    .geen-print {
+        display: none;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        box-shadow: none;
+        margin: 0;
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+    }
+}
+
+    
     </style>
 </head>
 
 <body>
 
-    <div class="ButtonTerug geen-print">
-        <a href="index.html" target="_self"><button><strong>Terug</strong></button></a>
+    <div class="geen-print">
+         <button onclick="window.print()">Download / Print Factuur</button>
     </div>
+
+    <div class="ButtonTerug geen-print">
+        <a href="Index.php" target="_self"><button><strong>Terug</strong></button></a>
+    </div>
+
+    
 
     <h1>Medewerker Uren per jaar Overzicht</h1>
 

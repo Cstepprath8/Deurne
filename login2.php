@@ -1,6 +1,15 @@
 <?php
 session_start();
 
+// Als gebruiker al is ingelogd via cookies, stel sessie in
+if (!isset($_SESSION['loggedin']) && isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] === 'true') {
+    $_SESSION['loggedin'] = true;
+    $_SESSION['username'] = $_COOKIE['username'];
+    $_SESSION['role'] = $_COOKIE['role'];
+    header("Location: index.php");
+    exit();
+}
+
 // Simulatie van een database met gebruikers
 $users = [
     'Daria'    => ['password' => 'Daria8888', 'role' => 'medewerker'],
@@ -24,8 +33,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $_SESSION['username'] = $username;
         $_SESSION['role'] = $users[$username]['role'];
 
+        // Zet cookies voor 7 dagen
+        $expireTime = time() + (86400 * 7); // 7 dagen
+        setcookie('username', $username, $expireTime, "/");
+        setcookie('role', $users[$username]['role'], $expireTime, "/");
+        setcookie('loggedin', 'true', $expireTime, "/");
+
         // Ga naar dashboard
-        header("Location: dashboard.php");
+        header("Location: index.php");
         exit();
     } else {
         $error = "Onjuiste gebruikersnaam of wachtwoord.";

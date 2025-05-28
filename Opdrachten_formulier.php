@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$titel, $omschrijving, $aanvraagdatum, $benodigdekennis, $klant_id]);
 
-        echo "<p style='color:green;'>✅ Opdracht succesvol toegevoegd voor klant_id $klant_id.</p>";
+        echo "<script>alert('✅ Opdracht succesvol toegevoegd!');</script>";
 
     } catch (Exception $e) {
         echo "<p style='color:red;'>❌ Fout: " . $e->getMessage() . "</p>";

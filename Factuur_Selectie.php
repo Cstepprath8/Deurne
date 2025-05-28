@@ -30,7 +30,7 @@ try {
 <body>
 
     <ul>
-        <li><a href="Index.html">Terug</a></li>
+        <li><a href="Index.php">Terug</a></li>
     </ul>
 
     <h2>Kies een klant voor een factuur te genereren</h2>

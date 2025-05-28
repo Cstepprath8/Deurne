@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute([ $voornaam, $tussenvoegsel, $achternaam, $geboortedatum, $functie, $werkmail, $kantoorruimte]);
  
     
-    
+    echo "<script>alert('✅ Medewerker succesvol toegevoegd!');</script>";
         
     } catch (PDOException $e) {
 

@@ -45,7 +45,7 @@ while ($row = $factuurResult->fetch_assoc()) {
 <html lang="nl">
 <head>
     <link rel="stylesheet" href="factuur.css">
-    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Factuur - <?= htmlspecialchars($klant['Bedrijfsnaam']) ?></title>
     <style>
         body { font-family: Arial; margin: 40px; }
@@ -68,7 +68,7 @@ while ($row = $factuurResult->fetch_assoc()) {
        </div>
 
        <div class="ButtonTerug geen-print">
-            <a href="index.html" target="_self" ><button><strong>Terug</strong></button></a>
+            <a href="Index.php" target="_self" ><button><strong>Terug</strong></button></a>
        </div>
 
         <div class="imagegilde">
@@ -99,7 +99,8 @@ while ($row = $factuurResult->fetch_assoc()) {
             <td><?= htmlspecialchars($regel['omschrijving']) ?></td>
             <td><?= $regel['totaal_uren'] ?></td>
             <td><?= number_format($tarief_per_uur, 2, ',', '.') ?></td>
-            <td><?= number_format($regel['subtotaal'], 2, ',', '.') ?></td>
+            <td>€ <?= number_format($regel['subtotaal'], 2, ',', '.') ?></td>
+
         </tr>
     <?php endforeach; ?>
 
@@ -111,11 +112,13 @@ while ($row = $factuurResult->fetch_assoc()) {
 
     <tr>
         <td colspan="3" class="totaal">21% BTW</td>
-        <td class="totaal"><?= number_format($btw, 2, ',', '.') ?></td>
+        <td class="totaal">€ <?= number_format($btw, 2, ',', '.') ?></td>
+
     </tr>
     <tr>
         <td colspan="3" class="totaal">Totaal incl. BTW</td>
-        <td class="totaal"><?= number_format($totaal_incl_btw, 2, ',', '.') ?></td>
+        <td class="totaal">€ <?= number_format($totaal_incl_btw, 2, ',', '.') ?></td>
+
     </tr>
 </table>
 

@@ -99,10 +99,38 @@ ul li a:hover {
             background-color: #003060;
         }
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    ul {
+        flex-direction: column;
+        position: static;
+    }
+
+    ul li a {
+        padding: 10px;
+        text-align: left;
+    }
+
     form {
-        padding: 25px 30px;
-        max-width: 90%;      /* Formulier vult bijna hele scherm */
-        margin-top: 40px;    /* Kleinere top marge */
+        position: static;       /* Weg met absolute positioning */
+        margin: 80px auto 20px; /* Ruimte boven het formulier */
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px;
     }
 }
+

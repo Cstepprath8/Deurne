@@ -40,7 +40,7 @@ try {
     $achternaammedewerker, $omschrijvingwerkzaamheden, $projectnaam, $aantaluren, $jaar
 ]);
 
-        echo "<p style='color:green;'>✅ Werkzaamheid toegevoegd!</p>";
+        echo "<script>alert('✅ Werkzaamheid succesvol toegevoegd!');</script>";
     }
 } catch (PDOException $e) {
     echo "<p style='color:red;'>❌ Databasefout: " . $e->getMessage() . "</p>";

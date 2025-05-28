@@ -117,3 +117,50 @@ table td.totaal {
         width: 100%;
     }
 }
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .gegevens p {
+        font-size: 14px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    .imagegilde {
+        position: static;
+        display: block;
+        margin: 20px auto;
+        transform: none;
+        max-width: 100px;
+    }
+
+    .ButtonTerug {
+        justify-content: center;
+        margin: 10px auto;
+        position: static;
+    }
+
+    .geen-print {
+        text-align: center;
+    }
+
+    .geen-print button {
+        width: 100%;
+        font-size: 14px;
+    }
+}

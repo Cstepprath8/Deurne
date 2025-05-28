@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $role === 'medewerker') {
         ]);
 
         // Na succesvol invoer doorverwijzen om dubbele POST te voorkomen
-        header("Location: " . $_SERVER['PHP_SELF']);
+         header("Location: " . $_SERVER['PHP_SELF'] . "?success=1");
         exit();
     } else {
         $error = "Vul alle velden correct in.";
@@ -103,8 +103,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $role === 'medewerker') {
     <meta charset="UTF-8" />
     <title>Uren Registratie</title>
     <link rel="stylesheet" href="table.css" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
+    <script>alert('✅ Uren succesvol toegevoegd!');</script>
+    <?php endif; ?>
 
      <div class="ButtonTerug geen-print">
             <a href="Formulier_Overzicht.html" target="_self" ><button><strong>Terug</strong></button></a>
