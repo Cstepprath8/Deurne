@@ -39,7 +39,7 @@ if (isset($_GET['search'])) {
         while ($row = $result->fetch_assoc()) {
             echo "<div class='search-result'>";
             echo "<h3>" . htmlspecialchars($row['Voornaam'] . " " . $row['Tussenvoegsels'] . " " . $row['Achternaam']) . "</h3>";
-            echo "<p><strong>ID:</strong> " . htmlspecialchars($row['ID']) . "</p>";
+            echo "<p><strong>ID:</strong> " . htmlspecialchars($row['ID'] ?? '') . "</p>";
             echo "<p><strong>Naam:</strong> " . htmlspecialchars($row['Voornaam'] . " " . $row['Tussenvoegsels'] . " " . $row['Achternaam']) . "</p>";
             echo "<p><strong>Geboortedatum:</strong> " . htmlspecialchars($row['GeboorteDatum']) . "</p>";
             echo "<p><strong>Functie:</strong> " . htmlspecialchars($row['Functie']) . "</p>";
