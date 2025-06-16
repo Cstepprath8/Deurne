@@ -13,7 +13,7 @@ $query = "
     SELECT 
         VoornaamMedewerker,
         Jaar AS jaar,
-        SUM(Aantaluren) AS totaal_uren,
+        SUM(TIME_TO_SEC(STR_TO_DATE(Aantaluren, '%H:%i')) / 3600) AS totaal_uren,
         GROUP_CONCAT(DISTINCT Omschrijvingwerkzaamheden SEPARATOR ', ') AS taken
     FROM werkzaamheden
     GROUP BY VoornaamMedewerker, jaar
@@ -40,6 +40,30 @@ while ($row = $result->fetch_assoc()) {
         $data[$naam]['info'] .= ", " . $row['taken'];
     }
 }
+
+// Top 10 klanten met aantal opdrachten
+$klant_query = "
+    SELECT 
+        CONCAT(k.Voornaam, ' van ', k.Bedrijfsnaam) AS klantnaam,
+        COUNT(*) AS aantal
+    FROM opdrachten o
+    JOIN klanten_db k ON o.Klant_id = k.ID
+    GROUP BY k.ID
+    ORDER BY aantal DESC
+    LIMIT 10
+";
+
+$klant_result = $conn->query($klant_query);
+$klant_data = [];
+
+if ($klant_result) {
+    while ($row = $klant_result->fetch_assoc()) {
+        $klant_data[] = $row;
+    }
+} else {
+    echo "Fout in klantquery: " . $conn->error;
+}
+
 
 $omschrijving_query = "
     SELECT Omschrijving, COUNT(*) AS aantal
@@ -76,7 +100,9 @@ while ($row = $result->fetch_assoc()) {
         ];
     }
 }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -95,7 +121,6 @@ while ($row = $result->fetch_assoc()) {
             text-align: center;
             background-image: url("Foto/WebsiteAchtergrond 3.png");
             background-size: cover;
-
         }
 
         h1, h2 {
@@ -156,8 +181,6 @@ while ($row = $result->fetch_assoc()) {
         .ButtonTerug {
             display: flex;
             justify-content: flex-end;
-            left: 90%;
-
         }
 
         .geen-print {
@@ -178,99 +201,129 @@ while ($row = $result->fetch_assoc()) {
             background-color: #45a049;
         }
 
+        .omschrijving-container {
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            color: #000;
+        }
+
+        .klanten-container h2 {
+            color: #1f2e46;
+            margin-bottom: 20px;
+        }
+
+        .klanten-tabel {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .klanten-tabel th, .klanten-tabel td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .klanten-tabel th {
+            background-color: #1f2e46;
+            color: #fff;
+        }
+
+        .klanten-tabel tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .klanten-tabel td {
+            color: #333;
+        }
+
         @media (max-width: 768px) {
-    body {
-        padding: 10px;
-        text-align: left;
-        background-position: center;
-    }
+            body {
+                padding: 10px;
+                text-align: left;
+                background-position: center;
+            }
 
-    h1, h2 {
-        font-size: 1.5rem;
-        text-align: center;
-    }
+            h1, h2 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
 
-    ul#medewerker-lijst {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
+            ul#medewerker-lijst {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
 
-   ul#medewerker-lijst li button {
-    background-color: #1f2e46;
-    color: white;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+            ul#medewerker-lijst li button {
+                width: 150px;
+                text-align: center;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
 
-   
-    width: 150px;         
-    text-align: center;
-    white-space: nowrap;  
-    overflow: hidden;     
-    text-overflow: ellipsis; 
-}
+            .layout {
+                gap: 20px;
+                margin-top: 20px;
+            }
 
-    .layout {
-        gap: 20px;
-        margin-top: 20px;
-    }
+            #grafiek,
+            #omschrijvingGrafiek {
+                width: 100% !important;
+                height: auto !important;
+            }
 
-    #grafiek,
-    #omschrijvingGrafiek {
-        width: 100% !important;
-        height: auto !important;
-    }
+            #medewerker-info {
+                width: 90%;
+                font-size: 14px;
+            }
 
-    #medewerker-info {
-        width: 90%;
-        font-size: 14px;
-    }
+            .geen-print {
+                text-align: center;
+                margin-top: 15px;
+            }
 
-    .geen-print {
-        text-align: center;
-        margin-top: 15px;
-    }
+            .geen-print button {
+                width: 100%;
+                font-size: 14px;
+                padding: 10px;
+            }
 
-    .geen-print button {
-        width: 100%;
-        font-size: 14px;
-        padding: 10px;
-    }
+            .ButtonTerug {
+                justify-content: center;
+            }
+        }
 
-    .ButtonTerug {
-        justify-content: center;
-    }
-}
+        @media print {
+            .geen-print {
+                display: none;
+            }
 
-@media print {
-    .geen-print {
-        display: none;
-    }
+            body {
+                font-size: 14px;
+            }
 
-    body {
-        font-size: 14px;
-    }
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 10px;
+            }
 
-    .container {
-        box-shadow: none;
-        margin: 0;
-        padding: 10px;
-    }
-
-    table {
-        width: 100%;
-    }
-}
-
-    
+            table {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
 <body>
-
     <div class="geen-print">
          <button onclick="window.print()">Download / Print Factuur</button>
     </div>
@@ -279,9 +332,7 @@ while ($row = $result->fetch_assoc()) {
         <a href="Index.php" target="_self"><button><strong>Terug</strong></button></a>
     </div>
 
-    
-
-    <h1>Medewerker Uren per jaar Overzicht</h1>
+    <h1>Medewerkers uren per jaar overzicht</h1>
 
     <ul id="medewerker-lijst">
         <?php foreach ($data as $naam => $gegevens): ?>
@@ -292,14 +343,30 @@ while ($row = $result->fetch_assoc()) {
     <div class="layout">
         <div class="grafiek-container">
             <canvas id="grafiek"></canvas>
-        </div>
-        <div class="omschrijving-container">
-            <h2>Top 10 Opdrachtsoorten</h2>
-            <canvas id="omschrijvingGrafiek"></canvas>
-        </div>
-        <div id="medewerker-info">
-        </div>
+        <div id="medewerker-info"></div>
     </div>
+
+    <!-- Toegevoegde klanten-tabel -->
+<div class="omschrijving-container">
+    <h2>Top 10 klanten met recente opdrachten</h2>
+
+    <table class="klanten-tabel">
+        <thead>
+            <tr>
+                <th>Klanten</th>
+                <th>Aantal opdrachten</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($klant_data as $index => $klant): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($klant['klantnaam']); ?></td>
+                    <td><?php echo $klant['aantal']; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 
     <script>
         const dataPerNaam = <?php echo json_encode($data); ?>;
@@ -308,7 +375,6 @@ while ($row = $result->fetch_assoc()) {
 
         let grafiekObject = null;
 
-        // Lege grafiek tonen bij pagina-lading
         const ctxInit = document.getElementById('grafiek').getContext('2d');
         grafiekObject = new Chart(ctxInit, {
             type: 'bar',
@@ -332,10 +398,7 @@ while ($row = $result->fetch_assoc()) {
             options: {
                 responsive: true,
                 scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: { display: true, text: 'Aantal uren' }
-                    },
+                    y: { beginAtZero: true, title: { display: true, text: 'Aantal uren' } },
                     y1: {
                         beginAtZero: true,
                         position: 'right',
@@ -346,15 +409,12 @@ while ($row = $result->fetch_assoc()) {
             }
         });
 
-
         function toonGrafiek(naam) {
             const buttons = document.querySelectorAll('#medewerker-lijst button');
             buttons.forEach(btn => btn.classList.remove('active'));
 
             const actieveKnop = Array.from(buttons).find(btn => btn.textContent.trim() === naam);
-            if (actieveKnop) {
-                actieveKnop.classList.add('active');
-            }
+            if (actieveKnop) actieveKnop.classList.add('active');
 
             const gegevens = dataPerNaam[naam];
             const omschrijvingen = omschrijvingenPerMedewerker[naam] || [];
@@ -408,11 +468,9 @@ while ($row = $result->fetch_assoc()) {
                 }
             });
 
-            document.getElementById("medewerker-info").innerHTML = `
-        `;
+            document.getElementById("medewerker-info").innerHTML = ``;
         }
 
-        // === Initieer omschrijving-grafiek bij laden ===
         const omschrijvingen = omschrijvingData.map(item => item.Omschrijving);
         const aantallen = omschrijvingData.map(item => item.aantal);
 
@@ -431,13 +489,10 @@ while ($row = $result->fetch_assoc()) {
                 responsive: true,
                 indexAxis: 'y',
                 scales: {
-                    x: {
-                        beginAtZero: true
-                    }
+                    x: { beginAtZero: true }
                 }
             }
         });
     </script>
 </body>
-
 </html>
